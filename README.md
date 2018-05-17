@@ -1,4 +1,4 @@
-# Build a Neural Network with Python
+# Build a Neural Network with Python
 
 Model a single hidden layer with 3 inputs and 1 output.
 
