@@ -11,3 +11,4 @@ docs/
 bin/
 *.sublime-workspace
 *.sublime-project
+*.txt
