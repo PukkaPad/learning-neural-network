@@ -119,7 +119,7 @@ class Neural_Network(object):
         print("Predicted data based on trained weights: ")
         print("Input (scaled): \n" + str(xPredicted_scaled))
         print("Output (scaled): \n" + str(self.forward(xPredicted_scaled)))
-        print("Output (not-scaled): \n" + str(y*np.amax(self.forward(xPredicted_scaled), axis=0)))
+        print("Output (not-scaled): \n" + str(self.forward(xPredicted_scaled)*100))
 
     def saveWeights(self):
         """Function saves the trained weights
@@ -130,15 +130,15 @@ class Neural_Network(object):
 
 NN = Neural_Network()
 
-for i in range(1000000):  # trains the NN 1,000 times
+for i in range(2):  # trains the NN 1,000 times
     print("Input (scaled): \n" + str(X_scaled))
     print("Input (not-scaled) : \n" + str(X*np.amax(X_scaled, axis=0)))
     #X = X/np.amax(X, axis=0)  # max of X
 
     print("Actual (scaled) Output: \n" + str(y_scaled))
     print("Predicted (scaled) Output: \n" + str(NN.forward(X_scaled)))
-    print("Actual (not-scaled) Output: \n" + str(y*np.amax(y_scaled, axis=0)))
-    print("Predicted (not-scaled) Output: \n" + str(y*np.amax(NN.forward(X_scaled), axis=0)))
+    print("Actual (not-scaled) Output: \n" + str(y_scaled * 100))
+    print("Predicted (not-scaled) Output: \n" + str(NN.forward(X_scaled)*100))
     print("Loss: \n" + str(np.mean(np.square(y_scaled - NN.forward(X_scaled)))))  # mean sum squared loss
     print("\n")
     NN.train(X_scaled, y_scaled)
